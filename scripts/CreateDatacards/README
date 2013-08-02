@@ -1,0 +1,42 @@
+---------------------------------------------------
+Welcome to the package which takes HZZ4l inputs, creates datacards 
+for the limit calculation, and provides scripts for running the limits 
+both locally and on the grid
+
+by Matt Snowball and Nhan Tran
+---------------------------------------------------
+
+Getting started...
+cvs co -P -r <tag> -d Limits UserCode/HZZ4L_Combination/CombinationPy
+
+Functions:
+0. Take inputs from HZZ4l analysis and convert to datacard inputs
+Documentation: AnalysisInputs/README
+
+1. Create datacards for running with LandS or Combination
+Documentation: CreateDatacards/README
+
+2. Run datacards on local cluster (support for UF, JHU, lxplus) or the GRID
+Documentation: RunLimits/README
+
+#########################################################
+
+1. Create datacards for running with LandS or Combination
+
+### Q U I C K   S T A R T   R E C I P E
+## Getting setup...
+cmsrel CMSSW_5_2_5
+cd CMSSW_5_2_5/src/
+cvs co -r HEAD HiggsAnalysis/CombinedLimit
+cmsenv
+scram b -j12
+cd ../..
+## compile HCSaW
+./buildPackage.sh
+## check inputs ---> SM_inputs_7TeV and SM_inputs_8TeV
+python makeDCsandWSs.py -i <input directory> -a <output name> -b > output.txt
+## output.txt holds all the messages from creating the cards
+
+#### ---> Next proceed to ../RunLimit/README to run limits
+
+

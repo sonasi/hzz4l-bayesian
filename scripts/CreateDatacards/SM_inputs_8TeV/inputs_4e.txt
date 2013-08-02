@@ -1,0 +1,122 @@
+############## Inputs for 4e for 8 TeV ##############
+## SM ##
+model SM
+
+## decay chan ##
+decay 4e
+
+## lumi ##
+lumi 12.1
+systematic lumiUnc 1.05
+
+## sqrtS ##
+sqrts 8
+
+## Channels to include in cards ##
+channels ggH qqH WH ZH ttH qqZZ ggZZ zjets
+
+## rates --- format = chan N lumi ##
+## if lumi is blank, lumi for cards used ##
+rate qqZZ  35.5002
+rate ggZZ  5.16472
+rate zjets 6.5
+
+usehighmassreweightedshapes
+## signal functions --- no spaces! ##
+signalShape alpha_CB (-22.3693)+(0.627422*@0)+(-0.0064991*@0*@0)+(3.20674e-05*@0*@0*@0)+(-7.51115e-08*@0*@0*@0*@0)+(6.71038e-11*@0*@0*@0*@0*@0)
+signalShape alpha2_CB (-33.5339)+(0.956795*@0)+(-0.0100707*@0*@0)+(4.99974e-05*@0*@0*@0)+(-1.15201e-07*@0*@0*@0*@0)+(9.94549e-11*@0*@0*@0*@0*@0)
+signalShape n_CB (-197.954)+(4.6367*@0)+(-0.0391504*@0*@0)+(0.000155755*@0*@0*@0)+(-2.97342e-07*@0*@0*@0*@0)+(2.20176e-10*@0*@0*@0*@0*@0)
+signalShape n2_CB (20)
+signalShape mean_CB (14.8494)+(-0.405085*@0)+(0.00422887*@0*@0)+(-2.16441e-05*@0*@0*@0)+(5.32721e-08*@0*@0*@0*@0)+(-5.00455e-11*@0*@0*@0*@0*@0)
+signalShape sigma_CB (-15.2189)+(0.442707*@0)+(-0.00452573*@0*@0)+(2.27111e-05*@0*@0*@0)+(-5.39753e-08*@0*@0*@0*@0)+(4.8518e-11*@0*@0*@0*@0*@0)
+
+highmasssignalShape alpha_CB (0.807196)+(0.000324715*@0)
+highmasssignalShape alpha2_CB (16.0914)+(-0.0433479*@0)+(3.09642e-05*@0*@0)
+highmasssignalShape n_CB (-15.5676)+(0.0957725*@0)+(-0.000117759*@0*@0)+(4.75733e-08*@0*@0*@0)
+highmasssignalShape n2_CB (20)
+highmasssignalShape mean_CB (-96.4993)+(0.472794*@0)+(-0.000704832*@0*@0)+(3.08549e-07*@0*@0*@0)
+highmasssignalShape sigma_CB (107.493)+(-0.624171*@0)+(0.0010989*@0*@0)+(-4.61003e-07*@0*@0*@0)
+highmasssignalShape gamma_BW TMath::Max((-446.657)+(2.13856*@0)+(-0.00298553*@0*@0)+(1.4181e-06*@0*@0*@0),30)
+
+## signal efficiency ##
+signalEff a1  -4.42666
+signalEff a2  4.61261
+signalEff a3  -68.2635
+signalEff a4  116.661
+signalEff b1  1.77008
+signalEff b2  0.00239787
+signalEff b3  -1.2625e-06
+
+
+### background functions ###
+qqZZshape a0_bkgd   110.804
+qqZZshape a1_bkgd   21.2238
+qqZZshape a2_bkgd   121.944
+qqZZshape a3_bkgd   0.0545292
+qqZZshape a4_bkgd   184.716
+qqZZshape a5_bkgd   10.6678
+qqZZshape a6_bkgd   32.5021
+qqZZshape a7_bkgd   0.139269
+qqZZshape a8_bkgd   57.7344
+qqZZshape a9_bkgd   0.0981813
+qqZZshape a10_bkgd  98.8529
+qqZZshape a11_bkgd  -7.13742
+qqZZshape a12_bkgd  13.4903
+qqZZshape a13_bkgd  0.112488
+
+
+ggZZshape a0_bkgd  133.605
+ggZZshape a1_bkgd  76.9753
+ggZZshape a2_bkgd  149.138
+ggZZshape a3_bkgd  0.0265549
+ggZZshape a4_bkgd  185.504
+ggZZshape a5_bkgd  11.9968
+ggZZshape a6_bkgd  39.086
+ggZZshape a7_bkgd  0.185831
+ggZZshape a8_bkgd  59.1277
+ggZZshape a9_bkgd  0.0758108
+
+zjetsShape mean 146.9
+zjetsShape sigma 21.3
+
+
+### channel dependent systematics ###
+systematic zjetKappaLow   0.3
+systematic zjetKappaHigh  1.9
+systematic param CMS_zz4l_mean_e_sig   0.004
+systematic param CMS_zz4l_sigma_e_sig  0.2
+systematic param CMS_zz4l_n_sig 0.05
+systematic param CMS_zz4l_gamma_sig 0.05
+
+
+## 4e systematics ##
+systematic elec_full 0.11 0.06 150
+systematic elec_trig 0.015
+
+##### Add Systematic to Cards ####
+##### allowed true/false ####
+systematic luminosity True
+systematic pdf_gg True
+systematic pdf_qqbar True
+systematic pdf_hzz4l_accept True
+systematic QCDscale_ggH True
+systematic QCDscale_qqH True
+systematic QCDscale_VH True
+systematic QCDscale_ttH True
+systematic theoryUncXS_HighMH True
+systematic QCDscale_ggVV True
+systematic QCDscale_VV True
+systematic BRhiggs_hzz4l True
+systematic CMS_eff True
+systematic CMS_hzz4l_Zjets True
+systematic CMS_zz4l_bkgMELA True
+systematic CMS_zz4l_sigMELA False
+systematic CMS_zz4l_mean True
+systematic CMS_zz4l_sigma True
+systematic CMS_zz4l_mean True
+systematic CMS_zz4l_sigma True
+systematic CMS_zz4l_n True
+systematic CMS_zz4l_gamma True
+### for hypothesis testing ###
+doHypTest False
+#altHypLabel _ALT
